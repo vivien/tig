@@ -332,6 +332,7 @@ DEFINE_ENUM(commit_order, COMMIT_ORDER_ENUM);
 	_(BRANCH, branch, ref_head), \
 	_(HELP,   help,   ""), \
 	_(PAGER,  pager,  ""), \
+	_(RAW,    raw,    ""), \
 	_(STATUS, status, "status"), \
 	_(STAGE,  stage,  ref_status), \
 	_(STASH,  stash,  ref_stash)
@@ -3851,6 +3852,7 @@ view_driver(struct view *view, enum request request)
 	case REQ_VIEW_STATUS:
 	case REQ_VIEW_STAGE:
 	case REQ_VIEW_PAGER:
+	case REQ_VIEW_RAW:
 	case REQ_VIEW_STASH:
 		open_view(view, request, OPEN_DEFAULT);
 		break;
@@ -8063,6 +8065,20 @@ static struct view_ops main_ops = {
 	main_done,
 };
 
+static struct view_ops raw_ops = {
+	"object",
+	{ "main" },
+	VIEW_STDIN | VIEW_SEND_CHILD_ENTER | VIEW_FILE_FILTER,
+	sizeof(struct main_state),
+	pager_open,
+	main_read,
+	main_draw,
+	main_request,
+	main_grep,
+	main_select,
+	main_done,
+};
+
 static bool
 stash_open(struct view *view, enum open_flags flags)
 {
@@ -8872,6 +8888,10 @@ parse_options(int argc, const char *argv[])
 		if (!seen_dashdash) {
 			if (!strcmp(opt, "--")) {
 				seen_dashdash = TRUE;
+				continue;
+
+			} else if (!strcmp(opt, "--raw")) {
+				request = REQ_VIEW_RAW;
 				continue;
 
 			} else if (!strcmp(opt, "-v") || !strcmp(opt, "--version")) {
