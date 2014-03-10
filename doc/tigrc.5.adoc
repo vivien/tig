@@ -357,8 +357,8 @@ built-in keybindings.
 Keymaps::
 
 Valid keymaps are: *main*, *diff*, *log*, *help*, *pager*, *status*, *stage*,
-*tree*, *blob*, *blame*, *branch*, *stash*, *grep* and *generic*. Use *generic*
-to set key mapping in all keymaps.
+*tree*, *blob*, *blame*, *branch*, *stash*, *remote*, *grep* and *generic*.
+Use *generic* to set key mapping in all keymaps.
 
 Key values::
 
@@ -417,6 +417,7 @@ following variable names, which are substituted before commands are run:
 |%(blob)		|The currently selected blob ID.
 |%(branch)		|The currently selected branch name.
 |%(stash)		|The currently selected stash name.
+|%(remote)		|The currently selected remote name.
 |%(directory)		|The current directory path in the tree view;
 			 empty for the root directory.
 |%(file)		|The currently selected file.
@@ -512,6 +513,7 @@ View switching
 |view-status             |Show status view
 |view-stage              |Show stage view
 |view-stash              |Show stash view
+|view-remote             |Show remote view
 |view-grep               |Show grep view
 |view-pager              |Show pager view
 |view-help               |Show help view

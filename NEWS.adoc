@@ -29,6 +29,7 @@ Incompatibilities:
 
 Improvements:
 
+ - Introduce the remote view, bound to the 'T' keybinding.
  - Add mouse support: scroll view, click line to move cursor, double click line
    (or click again) to "Enter" cursor line, e.g. open commit diff. Disabled by
    default, since it makes text selection less intuitive. If you enable this

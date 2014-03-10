@@ -221,6 +221,7 @@ TIG_OBJS = \
 	src/stage.o \
 	src/main.o \
 	src/stash.o \
+	src/remote.o \
 	src/grep.o \
 	$(COMPAT_OBJS)
 

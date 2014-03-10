@@ -17,6 +17,7 @@ tig show   [options] [revisions] [--] [paths]
 tig blame  [options] [rev] [--] path
 tig grep   [options] [pattern]
 tig stash
+tig remote
 tig status
 tig <      [Git command output]
 _______________________________________________________________________
@@ -54,6 +55,9 @@ log::
 
 stash::
 	Start up in stash view.
+
+remote::
+	Start up in remote view.
 
 grep::
 	Open the grep view. Supports the same options as git-grep(1).
@@ -160,6 +164,11 @@ $ tig blame -C README
 Display the list of stashes:
 -----------------------------------------------------------------------------
 $ tig stash
+-----------------------------------------------------------------------------
+
+Display the list of remotes:
+-----------------------------------------------------------------------------
+$ tig remote
 -----------------------------------------------------------------------------
 
 Grep all files for lines containing `DEFINE_ENUM`:

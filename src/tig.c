@@ -278,6 +278,7 @@ view_driver(struct view *view, enum request request)
 	case REQ_VIEW_STAGE:
 	case REQ_VIEW_PAGER:
 	case REQ_VIEW_STASH:
+	case REQ_VIEW_REMOTE:
 	case REQ_VIEW_GREP:
 		open_view(view, request, OPEN_DEFAULT);
 		break;
@@ -449,6 +450,7 @@ static const char usage_string[] =
 "   or: tig blame  [options] [rev] [--] path\n"
 "   or: tig grep   [options] [pattern]\n"
 "   or: tig stash\n"
+"   or: tig remote\n"
 "   or: tig status\n"
 "   or: tig <      [git command output]\n"
 "\n"
@@ -566,6 +568,9 @@ parse_options(int argc, const char *argv[], bool pager_mode)
 
 	} else if (!strcmp(subcommand, "stash")) {
 		request = REQ_VIEW_STASH;
+
+	} else if (!strcmp(subcommand, "remote")) {
+		request = REQ_VIEW_REMOTE;
 
 	} else {
 		subcommand = NULL;

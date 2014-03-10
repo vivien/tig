@@ -127,6 +127,9 @@ The stage view::
 The stash view::
 	Displays the list of stashes in the repository.
 
+The remote view::
+	Displays the list of remotes for the repository.
+
 The grep view::
 	Displays a list of files and all the lines that matches a search
 	pattern.
@@ -162,6 +165,7 @@ following variables.
 |%(blob)		|The currently selected blob ID.
 |%(branch)		|The currently selected branch name.
 |%(stash)		|The currently selected stash name.
+|%(remote)		|The currently selected remote name.
 |%(directory)		|The current directory path in the tree view;
 			 empty for the root directory.
 |%(file)		|The currently selected file.
@@ -304,6 +308,7 @@ View Switching
 |B	|Switch to blame view.
 |H	|Switch to branch view.
 |y	|Switch to stash view.
+|T	|Switch to remote view.
 |h	|Switch to help view
 |S	|Switch to status view
 |c	|Switch to stage view

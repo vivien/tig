@@ -949,6 +949,7 @@ add_line_format(struct view *view, enum line_type type, const char *fmt, ...)
 #include "status.h"
 #include "stage.h"
 #include "stash.h"
+#include "remote.h"
 #include "grep.h"
 #include "pager.h"
 #include "help.h"
